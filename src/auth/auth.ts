@@ -2,7 +2,7 @@ import { LambdaClient, InvokeCommand, InvokeCommandOutput } from "@aws-sdk/clien
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
  
 type Event = {
-    eventType: 'LOGIN' | 'REGISTER',
+    eventType: 'LOGIN' | 'REGISTER' | 'TEST',
 }
 
 type LoginEvent = {
@@ -12,17 +12,18 @@ type LoginEvent = {
         clientId: string,
     }
 } & Event
-export default class LamiAuth {
+
+type TestEvent =  {} & Event
+export default class Auth {
     private client: LambdaClient;
     private function_name: string;
-    constructor(){
-        let authEnv = process.env.AUTH_ENV;
-        this.function_name = `${authEnv}-lami-auth`??"dev-lami-auth";
+    constructor(functionName: string){
+        this.function_name = functionName;
         this.client = new LambdaClient({});
     }
 
    
-    protected async invoke(event: LoginEvent){
+    protected async invoke(event: LoginEvent | TestEvent){
         try {
             const command = new InvokeCommand({
                 FunctionName: this.function_name,
@@ -42,6 +43,12 @@ export default class LamiAuth {
              throw err;
         }
 
+    }
+
+    async test(){
+        return this.invoke({
+            eventType: 'TEST'
+        })
     }
 
 }

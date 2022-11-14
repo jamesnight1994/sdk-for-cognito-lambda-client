@@ -1,4 +1,4 @@
-import LamiAuth from "./lami-auth";
+import LamiAuth from "./auth";
 
 export default class User extends LamiAuth{
     private email: string;
@@ -29,8 +29,5 @@ export default class User extends LamiAuth{
             }
         });
     }
+
 }
-
-let user = new User("dd",";df");
-
-user.login()
