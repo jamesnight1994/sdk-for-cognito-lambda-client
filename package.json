@@ -4,6 +4,10 @@
   "description": "",
   "scripts": {
     "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test",
+    "version": "git add -A src",
+    "postversion": "git push && git push --tags ",
     "test": "jest --config jestconfig.json"
   },
   "repository": {
@@ -24,5 +28,8 @@
   "dependencies": {
     "@aws-sdk/client-lambda": "^3.208.0",
     "dotenv": "^16.0.3"
-  }
+  },
+  "files": [
+    "lib/**/*"
+  ]
 }
