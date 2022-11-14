@@ -5,7 +5,9 @@ export default class User extends LamiAuth{
     private password: string;
 
     constructor(email:string ,password: string) {
-        super();
+        require('dotenv').config();
+        const AUTH_FUNCTION = process.env.AUTH_FUNCTION??'';
+        super(AUTH_FUNCTION);
         this.email = email;
         this.password = password;
     }

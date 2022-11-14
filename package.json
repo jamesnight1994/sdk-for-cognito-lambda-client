@@ -1,10 +1,14 @@
 {
-  "name": "lami",
+  "name": "sdk",
   "version": "1.0.0",
   "description": "",
   "scripts": {
     "build": "tsc",
     "test": "jest --config jestconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/lamiv2/lami-microservices-apps/sdk.git"
   },
   "keywords": [],
   "author": "",
