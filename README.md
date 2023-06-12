@@ -1,6 +1,6 @@
 # Introduction
 
-This npm package helps us interact with various workflows in deployed on AWS lambda. These lambda functions work with variouse AWS reeources such as cognito
+This npm package helps us interact with various workflows in deployed on AWS lambda. These lambda functions work with variouse AWS reeources such as Cognito and AWS(SNS)
 
 # Contents
 
