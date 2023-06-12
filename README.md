@@ -1,6 +1,6 @@
 # Introduction
 
-This npm package helps us interact with various Lami services.
+This npm package helps us interact with various workflows in deployed on AWS lambda. These lambda functions work with variouse AWS reeources such as cognito
 
 # Contents
 
@@ -12,16 +12,16 @@ This npm package helps us interact with various Lami services.
 
 Run
 
-`npm install lami-sdk`
+`npm install nevar-cognito-sdk`
 
 ## Authentication
 
 App actions
 
 ```typescript
-import App from 'lami-sdk/lib/auth/app';
+import App from 'nevar-aws-sdk/lib/auth/app';
 
-const app  = new LamiUser("test@lami.world","testpassword");
+const app  = new User("test@gmail.com","testpassword");
 
 /** get access token @param clientSecret */
 let response = await app.getAccessToken(clientSecret);
@@ -35,15 +35,15 @@ User actions
 
 ```typescript
 
-import LamiUser from 'lami-sdk/lib/auth/user'
+import User from 'nevar-aws-sdk/lib/auth/user'
 
-const lamiUser  = new LamiUser("test@lami.world","testpassword");
+const user  = new User("test@lami.world","testpassword");
 
 /** Login @param clientId */
-let response = await lamiUser.login(clientId);
+let response = await user.login(clientId);
 
 /** Register @param userPoolId */
-let response = await lamiUser.register(userPoolId);
+let response = await user.register(userPoolId);
 
 
 ```
@@ -54,7 +54,7 @@ Sending and SMS/Text message
 
 ```typescript
 
-import SMS from 'lami-sdk/lib/sms'
+import SMS from 'nevar-aws-sdk/lib/sms'
 
 const sms  = new SMS();
 
